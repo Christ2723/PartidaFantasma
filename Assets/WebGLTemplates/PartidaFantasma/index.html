@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>La Partida Fantasma · Realidad Virtual</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #04060d; font-family: 'Segoe UI', Arial, sans-serif; }
+    #contenedor { position: fixed; inset: 0; }
+    #unity-canvas { width: 100%; height: 100%; display: block; background: #04060d; }
+    #carga { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #e8d6a6; background: radial-gradient(circle at 50% 40%, #121a35 0%, #04060d 70%); }
+    #carga h1 { font-size: 44px; letter-spacing: 4px; margin: 0 0 6px; color: #ffd987; text-shadow: 0 0 24px rgba(120,200,255,.45); }
+    #carga p { color: #9fb6dd; margin: 0 0 26px; }
+    #barra { width: 360px; height: 10px; border-radius: 6px; background: #1a2340; overflow: hidden; }
+    #progreso { width: 0; height: 100%; background: linear-gradient(90deg, #5fd0ff, #ffd987); }
+    #barraVR { position: absolute; left: 18px; bottom: 18px; display: flex; gap: 10px; align-items: center; }
+    #entervr { font-size: 18px; font-weight: 700; padding: 12px 22px; border-radius: 10px; border: 2px solid #7fd8ff; background: rgba(8,20,45,.85); color: #dff6ff; cursor: pointer; }
+    #entervr:disabled { opacity: .45; cursor: default; border-color: #556; }
+    #notaVR { color: #9fb6dd; font-size: 13px; max-width: 360px; text-shadow: 0 1px 2px #000; }
+    #enterar { display: none; }
+  </style>
+</head>
+<body>
+  <div id="contenedor">
+    <canvas id="unity-canvas" tabindex="-1"></canvas>
+    <div id="carga">
+      <h1>LA PARTIDA FANTASMA</h1>
+      <p>Sala de ajedrez de élite en realidad virtual · Christopher Payero Estrella · 1-21-0909</p>
+      <div id="barra"><div id="progreso"></div></div>
+    </div>
+    <div id="barraVR">
+      <button id="entervr" disabled>ENTRAR EN REALIDAD VIRTUAL</button>
+      <button id="enterar" disabled>AR</button>
+      <span id="notaVR">Con un visor (Meta Quest, etc.) abre esta página en su navegador y pulsa el botón. Sin visor: WASD + ratón.</span>
+    </div>
+  </div>
+  <script>
+    var buildUrl = "Build";
+    var loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
+    var config = {
+      dataUrl: buildUrl + "/{{{ DATA_FILENAME }}}",
+      frameworkUrl: buildUrl + "/{{{ FRAMEWORK_FILENAME }}}",
+      codeUrl: buildUrl + "/{{{ CODE_FILENAME }}}",
+#if MEMORY_FILENAME
+      memoryUrl: buildUrl + "/{{{ MEMORY_FILENAME }}}",
+#endif
+#if SYMBOLS_FILENAME
+      symbolsUrl: buildUrl + "/{{{ SYMBOLS_FILENAME }}}",
+#endif
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "{{{ COMPANY_NAME }}}",
+      productName: "{{{ PRODUCT_NAME }}}",
+      productVersion: "{{{ PRODUCT_VERSION }}}",
+    };
+    var canvas = document.querySelector("#unity-canvas");
+    var carga = document.querySelector("#carga");
+    var progreso = document.querySelector("#progreso");
+    var unityInstance = null;
+    var script = document.createElement("script");
+    script.src = loaderUrl;
+    script.onload = function () {
+      createUnityInstance(canvas, config, function (p) { progreso.style.width = (100 * p) + "%"; })
+        .then(function (instancia) { unityInstance = instancia; carga.style.display = "none"; canvas.focus(); })
+        .catch(function (m) { alert(m); });
+    };
+    document.body.appendChild(script);
+    canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+    canvas.addEventListener("mousedown", function () { canvas.focus(); });
+    var botonVR = document.getElementById("entervr");
+    var botonAR = document.getElementById("enterar");
+    document.addEventListener("onVRSupportedCheck", function (e) {
+      botonVR.disabled = !e.detail.supported;
+      if (e.detail.supported) document.getElementById("notaVR").textContent = "Visor detectado: pulsa el botón para entrar.";
+    }, false);
+    document.addEventListener("onARSupportedCheck", function (e) { botonAR.disabled = !e.detail.supported; }, false);
+    botonVR.addEventListener("click", function () { if (unityInstance) unityInstance.Module.WebXR.toggleVR(); }, false);
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+    "name": "PartidaFantasma",
+    "rootNamespace": "",
+    "references": [
+        "WebXR",
+        "Unity.InputSystem",
+        "UnityEngine.UI",
+        "Unity.XR.Management"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

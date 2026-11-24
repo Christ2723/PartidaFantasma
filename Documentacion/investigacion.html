@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Investigación: Realidad Aumentada y Realidad Virtual — Christopher Payero Estrella (1-21-0909)</title>
+<style>
+  @page { size: Letter; margin: 18mm 17mm 18mm 17mm; }
+  :root { --azul:#16305e; --dorado:#b8862b; --cian:#2a8fb8; --tinta:#1d1f24; --gris:#5b6270; --fondo:#f4f6fa; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, sans-serif; color: var(--tinta); font-size: 10.6pt; line-height: 1.5; margin: 0; }
+  h1 { font-size: 19pt; color: var(--azul); margin: 0 0 8px; border-bottom: 3px solid var(--dorado); padding-bottom: 4px; }
+  h2 { font-size: 13pt; color: var(--azul); margin: 16px 0 6px; }
+  h3 { font-size: 11pt; margin: 12px 0 4px; color: #2c3e63; }
+  p { margin: 4px 0 8px; text-align: justify; }
+  ul, ol { margin: 4px 0 8px 0; padding-left: 22px; }
+  li { margin: 2px 0; }
+  .pagina { page-break-after: auto; }
+  .portada { page-break-after: always; }
+  h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
+  table, tr, .caja, .dos, .nota, img, .continuo, .flecha, .pie { break-inside: avoid; page-break-inside: avoid; }
+  h1 { margin-top: 22px; }
+  .fuentes-pagina { break-before: page; }
+  table { border-collapse: collapse; width: 100%; margin: 6px 0 10px; font-size: 9.8pt; }
+  th { background: var(--azul); color: #fff; text-align: left; padding: 5px 7px; }
+  td { border-bottom: 1px solid #d8dde6; padding: 5px 7px; vertical-align: top; }
+  tr:nth-child(even) td { background: var(--fondo); }
+  .nota { background: #fbf5e6; border-left: 4px solid var(--dorado); padding: 6px 10px; margin: 8px 0; }
+  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .caja { border: 1px solid #cfd6e3; border-radius: 8px; padding: 8px 12px; background: #fbfcfe; }
+  .caja h3 { margin-top: 2px; }
+  .pro h3 { color: #1e7a46; }
+  .contra h3 { color: #b3362c; }
+  .captura { width: 100%; border-radius: 6px; border: 1px solid #c9ced8; display: block; }
+  .pie { font-size: 8.5pt; color: var(--gris); text-align: center; margin: 3px 0 8px; }
+  .continuo { display: flex; align-items: stretch; margin: 10px 0 4px; font-size: 9pt; text-align: center; font-weight: 600; }
+  .continuo div { flex: 1; padding: 8px 4px; color: #fff; }
+  .continuo .c1 { background: #5c7a5a; border-radius: 8px 0 0 8px; }
+  .continuo .c2 { background: #2a8fb8; }
+  .continuo .c3 { background: #3c5aa6; }
+  .continuo .c4 { background: #2b2350; border-radius: 0 8px 8px 0; }
+  .flecha { font-size: 8.5pt; color: var(--gris); display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .niveles td:first-child { font-weight: 700; color: var(--azul); width: 13%; white-space: nowrap; }
+  /* Portada */
+  .portada { text-align: center; padding-top: 22mm; }
+  .portada .uni { font-size: 12pt; letter-spacing: 2px; color: var(--gris); font-weight: 600; }
+  .portada .titulo { font-size: 30pt; font-weight: 800; color: var(--azul); margin: 26px 0 4px; line-height: 1.15; }
+  .portada .sub { font-size: 14pt; color: var(--dorado); margin: 6px 0 20px; font-weight: 600; }
+  .portada .datos { font-size: 12pt; line-height: 1.85; margin-top: 16px; }
+  .portada .enlaces { font-size: 10pt; line-height: 1.8; margin-top: 16px; background: var(--fondo); border-radius: 8px; padding: 10px 14px; display: inline-block; text-align: left; }
+  .portada img { width: 86%; border-radius: 8px; border: 1px solid #c9ced8; }
+  a { color: var(--cian); text-decoration: none; }
+  .indice { columns: 2; font-size: 10pt; margin-top: 10px; }
+  .fuentes li { font-size: 9.4pt; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ PORTADA -->
+<div class="pagina portada">
+  <div class="uni">PROGRAMACIÓN DE VIDEOJUEGOS</div>
+  <div class="titulo">Realidad Aumentada<br>y Realidad Virtual</div>
+  <div class="sub">Investigación y actividad práctica en Unity: «La Partida Fantasma VR»</div>
+  <img src="capturas/03_sala_publico.png" alt="La Partida Fantasma VR">
+  <div class="datos">
+    <b>Asignatura:</b> Programación de Videojuegos<br>
+    <b>Profesor:</b> Iván Mendoza<br>
+    <b>Alumno:</b> Christopher Payero Estrella &nbsp;·&nbsp; <b>Matrícula:</b> 1-21-0909<br>
+    <b>Fecha:</b> noviembre de 2026
+  </div>
+  <div class="enlaces">
+    <b>Repositorio GitHub:</b> <a href="https://github.com/Christ2723/PartidaFantasma">https://github.com/Christ2723/PartidaFantasma</a><br>
+    <b>Juego publicado (navegador, WebXR):</b> <a href="https://christ2723.github.io/PartidaFantasma/">https://christ2723.github.io/PartidaFantasma/</a><br>
+    <b>Compilación final (.exe para Windows):</b> <a href="https://github.com/Christ2723/PartidaFantasma/releases/latest">https://github.com/Christ2723/PartidaFantasma/releases/latest</a>
+  </div>
+</div>
+
+<!-- ============================================================ 1. RA -->
+<div class="pagina">
+  <h1>1. Realidad Aumentada</h1>
+
+  <h2>1.1 Definición</h2>
+  <p>La realidad aumentada (RA, o AR por sus siglas en inglés) es una tecnología que <b>agrega información digital encima del mundo real</b>
+  y en tiempo real. Uno sigue viendo su entorno de siempre, pero a través de la cámara del celular, de una tableta o de unos lentes especiales
+  aparecen objetos 3D, textos, flechas, sonidos o animaciones que parecen estar ahí mismo, pegados a la mesa, a la pared o a una persona.</p>
+  <p>Lo importante es que la RA <b>no reemplaza</b> la realidad, la complementa. Por ejemplo, cuando un filtro de Instagram le pone unos lentes
+  a tu cara y se mueven contigo, o cuando Google Maps te dibuja una flecha sobre la calle para decirte por dónde doblar, eso es realidad aumentada.</p>
+  <p>La definición más citada es la de <b>Ronald Azuma (1997)</b>, que dice que un sistema de RA tiene que cumplir tres cosas:
+  combinar lo real con lo virtual, ser interactivo en tiempo real y estar «registrado» en 3D, es decir, que los objetos virtuales queden
+  bien alineados con los objetos reales aunque uno se mueva.</p>
+
+  <h2>1.2 Padre de la Realidad Aumentada</h2>
+  <p>Al estadounidense <b>Ivan Sutherland</b> se le considera el padre de la realidad aumentada (y de los gráficos por computadora en general).
+  En <b>1968</b>, en la Universidad de Harvard, construyó junto a su alumno Bob Sproull el primer casco de visualización, apodado
+  <b>«La Espada de Damocles»</b> (<i>The Sword of Damocles</i>). Era tan pesado que tenía que colgar del techo con un brazo mecánico,
+  pero mostraba figuras de alambre en 3D encima de lo que la persona veía y las movía según el giro de la cabeza. Eso es, básicamente,
+  la idea de la RA y también de la RV moderna. Antes, en 1965, Sutherland había escrito el ensayo <i>«The Ultimate Display»</i>,
+  donde ya imaginaba una pantalla capaz de mostrar mundos que no existen.</p>
+  <p>Otros nombres importantes:</p>
+  <ul>
+    <li><b>Tom Caudell</b> (Boeing): inventó el término <i>augmented reality</i> alrededor de 1990, cuando con David Mizell diseñó un sistema
+    que mostraba a los trabajadores cómo armar los cables de los aviones sin tener que mirar los planos (lo publicaron en 1992).</li>
+    <li><b>Louis Rosenberg</b>: en 1992 creó <i>Virtual Fixtures</i> para la Fuerza Aérea de EE. UU., uno de los primeros sistemas de RA completos e interactivos.</li>
+    <li><b>Hirokazu Kato</b>: en 1999 publicó <b>ARToolKit</b>, la librería gratuita de marcadores que hizo posible que cualquiera programara RA.</li>
+  </ul>
+
+  <h2>1.3 Niveles de la Realidad Aumentada</h2>
+  <p>Los niveles miden qué tan compleja es la RA, desde lo más simple hasta lo más inmersivo (clasificación de Lens-Fitzgerald, muy usada en libros de educación):</p>
+  <table class="niveles">
+    <tr><th>Nivel</th><th>Nombre</th><th>¿Cómo funciona?</th><th>Ejemplo</th></tr>
+    <tr><td>Nivel 0</td><td>Enlazar el mundo físico</td><td>Un código impreso (QR o de barras) lleva a un contenido digital. No hay objetos 3D sobre la imagen, solo un enlace.</td><td>Menú de restaurante con QR</td></tr>
+    <tr><td>Nivel 1</td><td>RA con marcadores</td><td>La cámara reconoce un patrón impreso (normalmente en blanco y negro) y encima de él dibuja un modelo 3D que se mueve con el papel.</td><td>Cartas AR de la Nintendo 3DS, ARToolKit</td></tr>
+    <tr><td>Nivel 2</td><td>RA sin marcadores</td><td>Ya no hace falta un patrón: el dispositivo usa GPS, brújula, acelerómetro o reconoce superficies, imágenes y objetos reales.</td><td>Pokémon GO, IKEA Place</td></tr>
+    <tr><td>Nivel 3</td><td>Visión aumentada</td><td>La información se ve directamente en lentes o visores, sin sostener un celular. Es una experiencia más personal y envolvente.</td><td>Microsoft HoloLens, Meta Quest 3 con <i>passthrough</i>, Apple Vision Pro</td></tr>
+  </table>
+
+  <h2>1.4 Características</h2>
+  <ul>
+    <li><b>Mezcla lo real y lo virtual</b> en la misma vista.</li>
+    <li><b>Funciona en tiempo real</b>: si mueves el celular, el objeto virtual se actualiza al instante.</li>
+    <li><b>Está registrada en 3D</b>: los objetos virtuales se quedan «anclados» en su sitio del mundo real.</li>
+    <li><b>Es interactiva</b>: se puede tocar, girar o hablarle al contenido.</li>
+    <li><b>Usa sensores</b>: cámara, GPS, giroscopio, acelerómetro, brújula y a veces sensores de profundidad (LiDAR).</li>
+    <li><b>No aísla al usuario</b>: sigue viendo y oyendo a las personas que tiene al lado.</li>
+    <li><b>Es accesible</b>: casi cualquier celular moderno puede mostrar RA sin comprar nada extra.</li>
+  </ul>
+</div>
+
+<div class="pagina">
+  <h2>1.5 Tipos de Realidad Aumentada</h2>
+  <table>
+    <tr><th style="width:25%">Tipo</th><th>Explicación</th><th style="width:24%">Ejemplo</th></tr>
+    <tr><td><b>Basada en marcadores</b></td><td>Necesita una imagen o patrón conocido. Cuando la cámara lo ve, calcula su posición y dibuja el contenido encima.</td><td>Libros con láminas que «cobran vida»</td></tr>
+    <tr><td><b>Sin marcadores (markerless)</b></td><td>Detecta el suelo, las mesas y las paredes con la cámara y los sensores, y coloca los objetos donde uno toque.</td><td>Probar un mueble en la sala</td></tr>
+    <tr><td><b>Por geolocalización</b></td><td>Usa el GPS y la brújula para poner contenido en lugares reales del mapa.</td><td>Pokémon GO, Ingress</td></tr>
+    <tr><td><b>Por proyección</b></td><td>Proyecta luz directamente sobre superficies reales; a veces detecta cuando uno la toca.</td><td>Teclados láser, mesas interactivas</td></tr>
+    <tr><td><b>Por superposición</b></td><td>Reemplaza total o parcialmente la vista de un objeto por una versión aumentada de él.</td><td>Ver los huesos en una radiografía sobre el cuerpo</td></tr>
+    <tr><td><b>Por reconocimiento de objetos o rostros</b></td><td>Identifica caras u objetos en 3D y les agrega elementos que siguen sus movimientos.</td><td>Filtros de Instagram, Snapchat y TikTok</td></tr>
+  </table>
+
+  <h2>1.6 Ventajas y desventajas</h2>
+  <div class="dos">
+    <div class="caja pro">
+      <h3>Ventajas</h3>
+      <ul>
+        <li>Da información útil justo donde se necesita (instrucciones, rutas, datos de un producto).</li>
+        <li>Hace el aprendizaje más visual: un estudiante puede ver un corazón en 3D latiendo sobre su pupitre.</li>
+        <li>No hace falta equipo caro; basta un celular.</li>
+        <li>Permite «probar antes de comprar» (ropa, muebles, maquillaje).</li>
+        <li>En la industria reduce errores, porque el técnico ve los pasos encima de la máquina.</li>
+        <li>No separa al usuario de su entorno ni de otras personas.</li>
+      </ul>
+    </div>
+    <div class="caja contra">
+      <h3>Desventajas</h3>
+      <ul>
+        <li>Gasta mucha batería y exige un buen procesador.</li>
+        <li>Depende de la luz y de la cámara: con poca luz o superficies lisas el seguimiento falla.</li>
+        <li>Puede distraer: hubo accidentes de personas jugando Pokémon GO mientras caminaban o manejaban.</li>
+        <li>Riesgos de privacidad, porque la cámara siempre está grabando el entorno.</li>
+        <li>Los lentes de RA (HoloLens, Vision Pro) son muy caros y tienen un campo de visión limitado.</li>
+        <li>Desarrollar contenido 3D de calidad lleva tiempo y conocimientos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================ 2. RV -->
+  <h1 style="margin-top:20px">2. Realidad Virtual</h1>
+  <h2>2.1 Definición</h2>
+  <p>La realidad virtual (RV, o VR) es un <b>entorno creado completamente por computadora</b> en el que la persona se siente dentro de él.
+  A diferencia de la RA, aquí el mundo real desaparece: uno se pone un visor (casco o <i>headset</i>) que le tapa toda la vista, y lo que ve
+  y oye es un lugar artificial. El visor sigue los movimientos de la cabeza y, con los controles o las manos, se puede tocar, agarrar y mover
+  cosas dentro de ese mundo.</p>
+  <p>El término lo hizo popular <b>Jaron Lanier</b> en los años 80 con su empresa VPL Research, que vendió de los primeros visores y guantes de datos.
+  Lo que se busca en la RV es la <b>inmersión</b> (sentir que estás ahí) y la <b>presencia</b> (que el cerebro se «crea» el lugar).</p>
+</div>
+
+<div class="pagina">
+  <h2>2.2 Tipos de Realidad Virtual</h2>
+  <h3>Según el nivel de inmersión</h3>
+  <table>
+    <tr><th style="width:24%">Tipo</th><th>Explicación</th><th style="width:26%">Ejemplo</th></tr>
+    <tr><td><b>No inmersiva</b></td><td>El mundo virtual se ve en una pantalla normal (monitor o TV) y se controla con teclado, ratón o mando. Uno no se siente adentro.</td><td>Recorridos 3D de una casa en la web, Second Life</td></tr>
+    <tr><td><b>Semiinmersiva</b></td><td>Pantallas grandes o curvas, cabinas y asientos con movimiento. Envuelve parte de la vista.</td><td>Simuladores de vuelo de pilotos, cines 4D</td></tr>
+    <tr><td><b>Inmersiva</b></td><td>Visor en la cabeza con seguimiento de movimiento y sonido 3D; la vista completa es virtual.</td><td>Meta Quest 3, Valve Index, PlayStation VR2</td></tr>
+  </table>
+  <h3>Según el equipo que se usa</h3>
+  <ul>
+    <li><b>RV conectada a PC (PC VR):</b> el visor se conecta a una computadora potente, que hace todo el trabajo. Máxima calidad gráfica. Ej.: Valve Index, HTC Vive.</li>
+    <li><b>RV autónoma (standalone):</b> el visor tiene su propio procesador y batería; no necesita cables. Ej.: Meta Quest 3, Pico 4.</li>
+    <li><b>RV en consola:</b> el visor funciona con una consola de videojuegos. Ej.: PlayStation VR2.</li>
+    <li><b>RV con celular:</b> el celular se mete dentro de unos lentes de cartón o plástico. Ej.: Google Cardboard (ya casi no se usa).</li>
+    <li><b>RV en el navegador (WebXR):</b> una página web que, abierta desde el navegador del visor, entra en modo VR sin instalar nada. Es la que usé para publicar mi proyecto.</li>
+  </ul>
+  <p>También se habla de <b>3 grados de libertad (3DoF)</b>, cuando el visor solo detecta hacia dónde gira la cabeza, y de
+  <b>6 grados de libertad (6DoF)</b>, cuando además detecta si uno camina, se agacha o se inclina.</p>
+
+  <h2>2.3 Ventajas y desventajas</h2>
+  <div class="dos">
+    <div class="caja pro">
+      <h3>Ventajas</h3>
+      <ul>
+        <li>La inmersión es total; se siente como estar en otro lugar.</li>
+        <li>Permite entrenar sin riesgo: pilotos, cirujanos, bomberos y militares practican situaciones peligrosas.</li>
+        <li>Se usa en terapia, por ejemplo para tratar fobias (miedo a las alturas o a volar).</li>
+        <li>En educación permite visitar lugares imposibles: el interior de una célula, Marte o la antigua Roma.</li>
+        <li>Mejora el trabajo y las reuniones a distancia en espacios 3D compartidos.</li>
+        <li>Da experiencias de juego mucho más físicas y emocionantes.</li>
+      </ul>
+    </div>
+    <div class="caja contra">
+      <h3>Desventajas</h3>
+      <ul>
+        <li><b>Cibermareo</b>: a algunas personas les da mareo o náuseas cuando la vista se mueve pero el cuerpo no.</li>
+        <li>El equipo es caro, sobre todo si necesita una PC potente.</li>
+        <li>Aísla a la persona de lo que pasa a su alrededor; puede chocar con muebles.</li>
+        <li>Usarlo mucho tiempo cansa la vista y el cuello por el peso del visor.</li>
+        <li>Necesita espacio libre para moverse.</li>
+        <li>Hay menos contenido que en otras plataformas y los fabricantes no recomiendan su uso a niños pequeños.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================ 3. Diferencias -->
+  <h1 style="margin-top:18px">3. Diferencia entre Realidad Aumentada y Realidad Virtual</h1>
+  <p>La forma más fácil de entenderlo: <b>la RA le agrega cosas al mundo real; la RV lo reemplaza por completo.</b>
+  En 1994 Paul Milgram y Fumio Kishino lo explicaron con el <b>continuo realidad–virtualidad</b>, una línea que va del mundo totalmente real
+  al mundo totalmente virtual. La realidad aumentada queda cerca del lado real y la realidad virtual en el otro extremo.
+  Entre medio está la <b>realidad mixta</b>, donde los objetos virtuales además interactúan con los reales (por ejemplo, una pelota virtual que rebota en tu mesa de verdad).</p>
+  <div class="continuo"><div class="c1">Entorno real</div><div class="c2">Realidad aumentada</div><div class="c3">Virtualidad aumentada</div><div class="c4">Realidad virtual</div></div>
+  <div class="flecha"><span>◀ más mundo real</span><span>Realidad mixta (todo lo del medio)</span><span>más mundo virtual ▶</span></div>
+</div>
+
+<div class="pagina">
+  <table>
+    <tr><th style="width:22%">Aspecto</th><th>Realidad Aumentada</th><th>Realidad Virtual</th></tr>
+    <tr><td><b>Qué hace</b></td><td>Agrega objetos digitales al mundo real</td><td>Crea un mundo totalmente digital</td></tr>
+    <tr><td><b>Entorno</b></td><td>Se sigue viendo el lugar donde uno está</td><td>El lugar real desaparece de la vista</td></tr>
+    <tr><td><b>Inmersión</b></td><td>Parcial</td><td>Total</td></tr>
+    <tr><td><b>Equipo</b></td><td>Celular, tableta o lentes transparentes</td><td>Visor cerrado con controles o seguimiento de manos</td></tr>
+    <tr><td><b>Movilidad</b></td><td>Se puede usar en la calle y caminando</td><td>Se usa en un espacio controlado y seguro</td></tr>
+    <tr><td><b>Interacción social</b></td><td>Uno sigue viendo a las personas cerca</td><td>Uno se aísla (salvo en mundos multijugador)</td></tr>
+    <tr><td><b>Costo</b></td><td>Bajo si se usa el celular</td><td>Medio o alto</td></tr>
+    <tr><td><b>Uso típico</b></td><td>Navegación, compras, filtros, educación, mantenimiento industrial</td><td>Videojuegos, simuladores, entrenamiento, terapia, turismo virtual</td></tr>
+    <tr><td><b>En Unity</b></td><td>AR Foundation (ARCore/ARKit) o Vuforia</td><td>OpenXR, XR Interaction Toolkit, WebXR</td></tr>
+  </table>
+  <div class="nota">Hoy la línea entre las dos se está borrando: visores como el <b>Meta Quest 3</b> o el <b>Apple Vision Pro</b> hacen las dos cosas,
+  porque tienen cámaras a color que muestran la habitación real (<i>passthrough</i>) y pueden pasar de RA a RV en un segundo.</div>
+
+  <!-- ============================================================ 4. Videojuegos -->
+  <h1 style="margin-top:16px">4. Realidad Aumentada y Virtual en Videojuegos</h1>
+  <p>Los videojuegos son una de las áreas que más ha empujado estas tecnologías, porque buscan justamente que el jugador se meta en la experiencia.</p>
+  <h2>4.1 Realidad aumentada en juegos</h2>
+  <ul>
+    <li><b>Pokémon GO</b> (Niantic, 2016): el ejemplo más famoso. Usa geolocalización para poner Pokémon en calles y parques reales; fue descargado cientos de millones de veces y sacó a mucha gente a caminar.</li>
+    <li><b>Ingress</b> (Niantic, 2012): el antecesor de Pokémon GO, con dos equipos que conquistan «portales» en lugares reales.</li>
+    <li><b>Cartas AR de la Nintendo 3DS</b> (2011): con una carta sobre la mesa aparecían personajes y minijuegos encima.</li>
+    <li><b>EyePet</b> (PlayStation 3, 2009): una mascota virtual que «vivía» en la sala del jugador a través de la cámara.</li>
+    <li><b>Pikmin Bloom</b> y <b>Monster Hunter Now</b>: juegos de caminar que siguen la idea de Pokémon GO.</li>
+  </ul>
+  <h2>4.2 Realidad virtual en juegos</h2>
+  <ul>
+    <li><b>Beat Saber</b> (2019): cortar bloques con sables al ritmo de la música; uno de los juegos de VR más vendidos.</li>
+    <li><b>Half-Life: Alyx</b> (Valve, 2020): considerado de los mejores juegos de VR; demostró que se puede hacer una gran aventura completa en VR.</li>
+    <li><b>Superhot VR</b>: el tiempo solo avanza cuando uno se mueve.</li>
+    <li><b>Resident Evil 7</b> (modo PS VR): el terror se vuelve mucho más intenso cuando uno está «dentro» de la casa.</li>
+    <li><b>Gorilla Tag</b> y <b>Rec Room</b>: juegos sociales donde uno se mueve con los brazos; muy populares entre jóvenes.</li>
+  </ul>
+  <h2>4.3 ¿Qué aportan y qué retos tienen?</h2>
+  <p>Aportan <b>movimiento físico</b> (uno se agacha, esquiva y apunta con el brazo), <b>presencia</b> y nuevas formas de jugar que no existen con un mando.
+  Los retos son diseñar para que nadie se maree (por eso muchos juegos usan teletransporte o giros por pasos), lograr buenos gráficos a 72–120 cuadros
+  por segundo en cada ojo, y el precio del equipo, que todavía limita cuánta gente puede jugar. Un ejemplo de lo difícil que fue al inicio es la
+  <b>Virtual Boy</b> de Nintendo (1995), que fracasó porque daba dolor de cabeza y solo mostraba rojo y negro.</p>
+</div>
+
+<!-- ============================================================ 5. Unity -->
+<div class="pagina">
+  <h1>5. Realidad Aumentada y Virtual en Unity</h1>
+  <p>Unity es uno de los motores más usados para crear experiencias de RA y RV (una gran parte de los juegos de Meta Quest están hechos con él).
+  No hace falta programar cada visor por separado: Unity tiene un sistema llamado <b>XR</b> (de <i>extended reality</i>, que incluye RA, RV y realidad mixta)
+  que funciona como una capa común para todos los dispositivos.</p>
+  <h2>5.1 Herramientas principales</h2>
+  <table>
+    <tr><th style="width:27%">Paquete</th><th>Para qué sirve</th></tr>
+    <tr><td><b>XR Plug-in Management</b></td><td>Es donde se elige qué «cargador» usar en cada plataforma (OpenXR para PC, el de Android, el de WebGL, etc.). Al iniciar el juego, enciende el visor.</td></tr>
+    <tr><td><b>OpenXR</b></td><td>Estándar abierto del grupo Khronos. Con un solo código el juego funciona en Meta Quest, Valve Index, HTC Vive, Windows Mixed Reality y otros. Solo hay que activar los perfiles de controles.</td></tr>
+    <tr><td><b>XR Interaction Toolkit</b></td><td>Componentes ya hechos para VR: agarrar objetos, rayos láser para señalar, teletransporte, botones y menús en 3D.</td></tr>
+    <tr><td><b>AR Foundation</b></td><td>Capa común para RA en celulares: por debajo usa <b>ARCore</b> (Android) y <b>ARKit</b> (iPhone). Detecta planos, imágenes, caras y la luz del ambiente.</td></tr>
+    <tr><td><b>XR Hands</b></td><td>Seguimiento de las manos sin controles (los dedos de la persona).</td></tr>
+    <tr><td><b>Input System</b></td><td>Lee los gatillos, botones y palancas de los controles de VR igual que un mando normal.</td></tr>
+    <tr><td><b>Plantillas</b></td><td>Unity Hub trae plantillas listas: <i>VR</i>, <i>AR Mobile</i> y <i>Mixed Reality</i>, con una escena de ejemplo ya configurada.</td></tr>
+    <tr><td><b>WebXR Export</b> (comunidad)</td><td>Paquete gratuito de De-Panther que permite exportar a WebGL y entrar en VR o RA desde el navegador del visor o del celular.</td></tr>
+  </table>
+  <h2>5.2 Pasos generales para un proyecto de VR</h2>
+  <ol>
+    <li>Crear el proyecto (o usar la plantilla VR) e instalar <b>XR Plug-in Management</b> y <b>OpenXR</b> desde el Package Manager.</li>
+    <li>En <i>Project Settings → XR Plug-in Management</i> marcar OpenXR y agregar los perfiles de los controles (por ejemplo, Oculus Touch).</li>
+    <li>Crear un «XR Origin»: un objeto que representa al jugador, con la cámara como cabeza y dos objetos para las manos que siguen a los controles.</li>
+    <li>Agregar interacción: rayos para señalar, agarre de objetos y una forma de moverse (caminar con la palanca o teletransporte).</li>
+    <li>Optimizar: en VR se dibuja la escena dos veces (una por ojo), así que se usa <i>Single Pass Instanced</i> y se cuidan las luces y sombras.</li>
+    <li>Compilar para la plataforma (Windows, Android para Quest o WebGL) y probar con el visor.</li>
+  </ol>
+  <h2>5.3 Pasos generales para un proyecto de RA</h2>
+  <ol>
+    <li>Instalar <b>AR Foundation</b> y el plugin de la plataforma (ARCore para Android o ARKit para iOS).</li>
+    <li>Poner en la escena un <b>AR Session</b> y un <b>XR Origin (AR)</b> con la cámara del celular.</li>
+    <li>Agregar administradores según lo que se quiera detectar: <i>AR Plane Manager</i> (suelos y mesas), <i>AR Raycast Manager</i> (tocar la pantalla para colocar objetos), <i>AR Tracked Image Manager</i> (imágenes).</li>
+    <li>Compilar para Android o iOS y probar en un celular compatible.</li>
+  </ol>
+</div>
+
+<!-- ============================================================ 6. Vuforia -->
+<div class="pagina">
+  <h1>6. Vuforia en Unity</h1>
+  <p><b>Vuforia Engine</b> es un kit de desarrollo (SDK) de realidad aumentada creado originalmente por Qualcomm y que desde 2015 pertenece a la empresa <b>PTC</b>.
+  Es de los más conocidos para hacer RA con marcadores e imágenes, y se integra con Unity como un paquete más. Su gran ventaja es que
+  reconoce imágenes y objetos reales de forma muy estable y funciona en Android, iOS, lentes como HoloLens e incluso con la cámara web de la PC mientras se prueba.</p>
+
+  <h2>6.1 Tipos de «targets» (lo que Vuforia puede reconocer)</h2>
+  <table>
+    <tr><th style="width:24%">Target</th><th>Descripción</th></tr>
+    <tr><td><b>Image Target</b></td><td>Una imagen plana (foto, portada de libro, etiqueta). Es el más usado. Mientras más detalles y contraste tenga, mejor se reconoce (Vuforia le da una calificación de estrellas).</td></tr>
+    <tr><td><b>Multi Target</b></td><td>Varias imágenes en las caras de una caja.</td></tr>
+    <tr><td><b>Cylinder Target</b></td><td>Imágenes enrolladas en un cilindro, como una lata o una botella.</td></tr>
+    <tr><td><b>Model Target</b></td><td>Un objeto 3D real reconocido por su forma, a partir de su modelo CAD (un carro, una máquina, un juguete).</td></tr>
+    <tr><td><b>Area Target</b></td><td>Un espacio completo escaneado (una habitación o una fábrica).</td></tr>
+    <tr><td><b>Ground Plane</b></td><td>Detecta el suelo o una mesa para colocar objetos sin marcadores.</td></tr>
+    <tr><td><b>VuMark</b></td><td>Un marcador diseñado a gusto que además guarda un código único (como un QR con estilo propio).</td></tr>
+  </table>
+
+  <h2>6.2 Cómo se usa en Unity (paso a paso)</h2>
+  <ol>
+    <li>Crear una cuenta gratis en el portal de desarrolladores de Vuforia (<i>developer.vuforia.com</i>) y generar una <b>License Key</b> (la licencia básica es gratuita para desarrollar).</li>
+    <li>Descargar el paquete <b>Vuforia Engine</b> para Unity e importarlo al proyecto (se agrega en el Package Manager).</li>
+    <li>Borrar la <i>Main Camera</i> y agregar una <b>AR Camera</b> (<i>GameObject → Vuforia Engine → AR Camera</i>).</li>
+    <li>En la AR Camera abrir <i>Open Vuforia Engine Configuration</i> y pegar la License Key.</li>
+    <li>En el <b>Target Manager</b> del portal crear una base de datos, subir la imagen que servirá de marcador y descargarla como paquete de Unity. Importarla al proyecto. (En versiones nuevas también se puede arrastrar la imagen directamente al componente.)</li>
+    <li>Agregar un <b>Image Target</b> (<i>GameObject → Vuforia Engine → Image Target</i>) y elegir la base de datos y la imagen.</li>
+    <li>Poner como <b>hijo</b> del Image Target el modelo 3D, personaje o animación que se quiere mostrar. Así aparece pegado a la imagen.</li>
+    <li>Darle Play: con la cámara web se apunta a la imagen impresa (o en el celular) y el modelo aparece encima.</li>
+    <li>Con el componente <b>Default Observer Event Handler</b> se programan eventos: qué pasa cuando el marcador se encuentra (<i>On Target Found</i>) y cuando se pierde (<i>On Target Lost</i>), por ejemplo reproducir un sonido o una animación.</li>
+    <li>Compilar para Android o iOS.</li>
+  </ol>
+  <div class="nota"><b>Vuforia vs. AR Foundation:</b> Vuforia es más fácil para marcadores e imágenes y funciona incluso en celulares sin ARCore,
+  pero es de pago para uso comercial y muestra una marca de agua con la licencia gratuita. AR Foundation es gratis y oficial de Unity,
+  pero depende de que el celular soporte ARCore o ARKit.</div>
+</div>
+
+<!-- ============================================================ 7. Actividad -->
+<div class="pagina">
+  <h1>7. Actividad: «La Partida Fantasma VR»</h1>
+  <p>Para la parte práctica decidí hacer un <b>espacio de realidad virtual</b> en lugar de otro juego de disparos o de plataformas.
+  Como ajedrecista, quise llevar a la VR algo que conozco bien: una <b>sala de torneo de la élite de la FIDE</b> con un tablero de madera
+  <b>electrónico tipo DGT</b> (los que transmiten las jugadas en vivo por internet), pero con un toque extraño: la sala flota en el vacío,
+  bajo un cielo de estrellas, y frente al tablero no hay nadie. Un <b>jugador fantasma</b>, del que solo se ven unas manos espectrales,
+  mueve las piezas y pulsa el reloj, recordando partidas históricas.</p>
+  <img class="captura" src="capturas/02_mano_fantasma.png" alt="Mano del fantasma moviendo una pieza">
+  <div class="pie">La mano espectral del fantasma mueve las piezas sobre el tablero DGT y pulsa el reloj.</div>
+
+  <h2>7.1 ¿Qué se puede hacer?</h2>
+  <ul>
+    <li><b>Ver la exhibición:</b> el fantasma reproduce 5 partidas históricas (Kasparov–Topalov 1999, la Inmortal de 1851, la Partida de la Ópera de Morphy,
+    la Partida del Siglo de Fischer y Deep Blue–Kasparov 1997). La pantalla gigante de transmisión, la planilla y el reloj se actualizan solos.</li>
+    <li><b>Análisis libre:</b> si uno agarra una pieza, el fantasma se aparta. El tablero marca las casillas legales y rechaza las jugadas ilegales (la pieza vuelve a su casilla).</li>
+    <li><b>Duelo:</b> se juega con blancas contra el fantasma, que piensa con un pequeño motor de ajedrez propio.</li>
+    <li><b>Modo Peón:</b> el visitante se encoge al tamaño de una pieza y camina por encima del tablero, entre los reyes y las damas.</li>
+    <li><b>Consola del árbitro:</b> botones físicos que se aprietan con la mano para pausar, cambiar de partida, retar al fantasma o reiniciar.</li>
+  </ul>
+
+  <h2>7.2 Cómo se aplicó la realidad virtual</h2>
+  <ul>
+    <li><b>OpenXR</b> en la versión para Windows (.exe): funciona con visores de PC (Meta Quest con Link, Valve Index, HTC Vive, Windows MR). La cabeza y las dos manos siguen al visor.</li>
+    <li><b>WebXR</b> en la versión publicada en la web: desde el navegador del Meta Quest se pulsa «Entrar en realidad virtual».</li>
+    <li>Con los controles: gatillo o botón de agarre para tomar piezas, rayo para señalar desde lejos, palanca izquierda para caminar y derecha para girar por pasos (evita el mareo).</li>
+    <li>Sin visor también se puede recorrer con teclado y ratón (WASD, clic derecho para mirar, clic izquierdo para agarrar), para que cualquiera pueda probarlo.</li>
+    <li>El <b>nombre y la matrícula</b> están en la esquina superior derecha tanto en pantalla como dentro del visor.</li>
+  </ul>
+  <div class="dos">
+    <div><img class="captura" src="capturas/08_modo_peon.png" alt="Modo Peón"><div class="pie">Modo Peón: caminando sobre el tablero.</div></div>
+    <div><img class="captura" src="capturas/04_pantalla_gigante.png" alt="Pantalla de transmisión"><div class="pie">Pantalla gigante de transmisión.</div></div>
+  </div>
+  <p>Todo (las piezas Staunton torneadas, la madera, los sonidos y la sala) se genera desde código en Unity, sin modelos ni sonidos descargados.
+  Los enlaces al código, al juego publicado y al ejecutable están en la portada.</p>
+</div>
+
+<!-- ============================================================ Fuentes -->
+<div class="pagina fuentes-pagina">
+  <h1>Fuentes consultadas</h1>
+  <ol class="fuentes">
+    <li>Azuma, R. (1997). <i>A Survey of Augmented Reality</i>. Presence: Teleoperators and Virtual Environments, 6(4), 355-385.</li>
+    <li>Sutherland, I. (1965). <i>The Ultimate Display</i>. Proceedings of the IFIP Congress.</li>
+    <li>Sutherland, I. (1968). <i>A head-mounted three dimensional display</i>. Fall Joint Computer Conference, AFIPS.</li>
+    <li>Caudell, T. y Mizell, D. (1992). <i>Augmented reality: an application of heads-up display technology to manual manufacturing processes</i>. Hawaii International Conference on System Sciences.</li>
+    <li>Milgram, P. y Kishino, F. (1994). <i>A Taxonomy of Mixed Reality Visual Displays</i>. IEICE Transactions on Information Systems.</li>
+    <li>Prendes, C. (2015). <i>Realidad aumentada y educación: análisis de experiencias prácticas</i>. Píxel-Bit, Revista de Medios y Educación, 46 (niveles de RA según Lens-Fitzgerald).</li>
+    <li>Documentación de Unity: <i>XR in Unity</i>, <i>AR Foundation</i>, <i>OpenXR Plugin</i> y <i>XR Interaction Toolkit</i>. docs.unity3d.com</li>
+    <li>Documentación de PTC Vuforia: <i>Getting Started with Vuforia Engine in Unity</i> y <i>Vuforia Features</i>. developer.vuforia.com/library</li>
+    <li>De-Panther. <i>WebXR Export para Unity</i>. github.com/De-Panther/unity-webxr-export</li>
+    <li>Khronos Group. <i>OpenXR Overview</i>. khronos.org/openxr</li>
+  </ol>
+</div>
+
+</body>
+</html>
